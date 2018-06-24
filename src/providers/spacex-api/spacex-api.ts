@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
 import { ILauch } from '../../app/Models/ILauch';
 import { ICapsule } from '../../app/Models/ICapsule';
+import {ICapsulePart} from "../../app/Models/ICapsulePart";
 
 /*
   Generated class for the SpacexApiProvider provider.
@@ -18,6 +19,9 @@ export class SpacexApiProvider {
 
   }
 
+  /*
+    Launches
+   */
   getAllLaunches(params: any) :Observable<ILauch[]> {
     const endpointUrl = `${this.baseUrl}/launches/all`;
     const httpParams = Object.getOwnPropertyNames(params).reduce((p, key) => p.set(key, params[key]), new HttpParams());
@@ -25,11 +29,17 @@ export class SpacexApiProvider {
     return this.http.get<ILauch[]>(endpointUrl);
   }
 
+  /*
+    Capsules
+   */
   getAllCapsules(params: any) :Observable<ICapsule[]> {
     const endpointUrl = `${this.baseUrl}/capsules`;
-    const httpParams = Object.getOwnPropertyNames(params).reduce((p, key) => p.set(key, params[key]), new HttpParams());
-
     return this.http.get<ICapsule[]>(endpointUrl);
+  }
+
+  getCapsuleDetailsById(capsule_id: string) :Observable<ICapsulePart[]> {
+    const endpointUrl = `${this.baseUrl}/parts/caps?capsule_id=`+capsule_id;
+    return this.http.get<ICapsulePart[]>(endpointUrl);
   }
 
 }
