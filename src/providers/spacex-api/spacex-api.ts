@@ -2,6 +2,7 @@ import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
 import { ILauch } from '../../app/Models/ILauch';
+import { IAbout } from '../../app/Models/IAbout';
 
 /*
   Generated class for the SpacexApiProvider provider.
@@ -20,8 +21,14 @@ export class SpacexApiProvider {
   getAllLaunches(params: any) :Observable<ILauch[]> {
     const endpointUrl = `${this.baseUrl}/launches/all`;
     const httpParams = Object.getOwnPropertyNames(params).reduce((p, key) => p.set(key, params[key]), new HttpParams());
-    
+
     return this.http.get<ILauch[]>(endpointUrl);
   }
 
+  getInformationOfCompagny(params: any) :Observable<IAbout> {
+    const endpointUrl = `${this.baseUrl}/info`;
+    const httpParams = Object.getOwnPropertyNames(params).reduce((p, key) => p.set(key, params[key]), new HttpParams());
+
+    return this.http.get<IAbout>(endpointUrl);
+  }
 }
