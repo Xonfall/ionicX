@@ -9,6 +9,7 @@ import { ListPage } from '../pages/list/list';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { LauchListPage } from '../pages/lauch-list/lauch-list';
+import { CapsuleListPage } from '../pages/capsule-list/capsule-list';
 import { SpacexApiProvider } from '../providers/spacex-api/spacex-api';
 import { HttpClientModule } from '@angular/common/http';
 
@@ -17,7 +18,8 @@ import { HttpClientModule } from '@angular/common/http';
     MyApp,
     HomePage,
     ListPage,
-    LauchListPage
+    LauchListPage,
+    CapsuleListPage
   ],
   imports: [
     BrowserModule,
@@ -29,7 +31,8 @@ import { HttpClientModule } from '@angular/common/http';
     MyApp,
     HomePage,
     ListPage,
-    LauchListPage
+    LauchListPage,
+    CapsuleListPage
   ],
   providers: [
     StatusBar,
