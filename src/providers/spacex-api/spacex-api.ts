@@ -25,9 +25,10 @@ export class SpacexApiProvider {
     return this.http.get<ILauch[]>(endpointUrl);
   }
 
+  /* About */
+
   getInformationOfCompagny(params: any) :Observable<IAbout> {
     const endpointUrl = `${this.baseUrl}/info`;
-    const httpParams = Object.getOwnPropertyNames(params).reduce((p, key) => p.set(key, params[key]), new HttpParams());
 
     return this.http.get<IAbout>(endpointUrl);
   }

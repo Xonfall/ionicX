@@ -13,34 +13,52 @@
   </ion-navbar>
 </ion-header>
 
-<ion-content padding>
+<ion-content padding *ngIf="abouts  != null">
 
-  <ion-card *ngIf="abouts  != null">
-    <ion-card-header>
-      {{ abouts.name }} | {{ abouts.ceo }}
+  <ion-card>
+
+    <img src="../../assets/imgs/spacex-logo.jpg">
+
+    <ion-card-header text-center color="primary">
+      {{ abouts.name }}
     </ion-card-header>
+
     <ion-card-content>
       {{ abouts.summary }}
     </ion-card-content>
-    <ion-row>
-      <ion-col>
-        <button ion-button icon-start clear small>
-          <ion-icon name="people" ios="ios-people" md="md-people"></ion-icon>
-          <div>{{ abouts.employees}}</div>
-        </button>
-      </ion-col>
-      <ion-col>
-        <button ion-button icon-start clear small>
-          <ion-icon name="home" ios="ios-home" calendarmd="md-home"></ion-icon>
-          <div>{{ abouts.headquarters.city }}</div>
-        </button>
-      </ion-col>
-      <ion-col center text-center>
-        <ion-note>
-          {{ abouts.founded }}
-        </ion-note>
-      </ion-col>
-    </ion-row>
+
+    <ion-item>
+      <ion-icon name="home" item-start large></ion-icon>
+      <h2>Foundation</h2>
+      <p>Founded by {{ abouts.founder }} in {{ abouts.founded }}</p>
+    </ion-item>
+
+    <ion-item>
+      <ion-icon name="pin" item-left large></ion-icon>
+      <h2>Headquarter</h2>
+      <p> {{ abouts.headquarters.state}}, {{ abouts.headquarters.city }} </p>
+      <p> {{ abouts.headquarters.address }} </p>
+    </ion-item>
+
+    <ion-item>
+      <ion-icon name="people" item-left large></ion-icon>
+      <h2>Employees</h2>
+      <p> {{ abouts.employees}} </p>
+    </ion-item>
+
+    <ion-item>
+      <ion-icon name="jet" item-left large></ion-icon>
+      <h2>Launch Sites</h2>
+      <p> {{ abouts.launch_sites}} </p>
+      <p> Test Sites: {{ abouts.test_sites}} </p>
+    </ion-item>
+
+    <ion-item>
+      <ion-icon name="car" item-left large></ion-icon>
+      <h2>Vehicles</h2>
+      <p> {{ abouts.vehicles}} </p>
+    </ion-item>
+
   </ion-card>
 
 </ion-content>
