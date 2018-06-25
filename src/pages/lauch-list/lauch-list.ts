@@ -19,9 +19,9 @@ export class LauchListPage {
   public lauches: ILauch[];
 
   constructor(
-    public navCtrl: NavController, 
-    public navParams: NavParams, 
-    private spacexApi: SpacexApiProvider) 
+    public navCtrl: NavController,
+    public navParams: NavParams,
+    private spacexApi: SpacexApiProvider)
     {
       this.spacexApi.getAllLaunches({
         order: 'desc'

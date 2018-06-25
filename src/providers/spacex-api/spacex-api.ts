@@ -1,10 +1,12 @@
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
+
 import { ILauch } from '../../app/Models/ILauch';
 import { ICapsule } from '../../app/Models/ICapsule';
-import {ICapsulePart} from "../../app/Models/ICapsulePart";
-import {IRocket} from "../../app/Models/IRocket";
+import { ICapsulePart } from "../../app/Models/ICapsulePart";
+import { IRocket } from "../../app/Models/IRocket";
+import { IAbout } from '../../app/Models/IAbout';
 
 /*
   Generated class for the SpacexApiProvider provider.
@@ -30,6 +32,18 @@ export class SpacexApiProvider {
     return this.http.get<ILauch[]>(endpointUrl);
   }
 
+  getNextLaunches(params: any) :Observable<ILauch[]> {
+    const endpointUrl = `${this.baseUrl}/launches/upcoming`;
+
+    return this.http.get<ILauch[]>(endpointUrl);
+  }
+
+  getPastLaunches(params: any) :Observable<ILauch[]> {
+    const endpointUrl = `${this.baseUrl}/launches`;
+
+    return this.http.get<ILauch[]>(endpointUrl);
+  }
+
   /*
     Capsules
    */
@@ -49,5 +63,14 @@ export class SpacexApiProvider {
   getAllRockets(params: any) :Observable<IRocket[]> {
     const endpointUrl = `${this.baseUrl}/rockets`;
     return this.http.get<IRocket[]>(endpointUrl);
+  }
+
+  /*
+    About
+  */
+  getAboutInformations(params: any) :Observable<IAbout> {
+    const endpointUrl = `${this.baseUrl}/info`;
+
+    return this.http.get<IAbout>(endpointUrl);
   }
 }

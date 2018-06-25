@@ -2,8 +2,7 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { SpacexApiProvider } from '../../providers/spacex-api/spacex-api';
 import { IRocket } from '../../app/Models/IRocket';
-import {CapsuleDetailsPage} from "../capsule-details/capsule-details";
-import {RocketDetailsPage} from "../rocket-details/rocket-details";
+import { RocketDetailsPage } from "../rocket-details/rocket-details";
 
 @IonicPage()
 @Component({

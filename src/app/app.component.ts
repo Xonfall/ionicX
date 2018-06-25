@@ -7,7 +7,8 @@ import { HomePage } from '../pages/home/home';
 import { ListPage } from '../pages/list/list';
 import { LauchListPage } from '../pages/lauch-list/lauch-list';
 import { CapsuleListPage } from '../pages/capsule-list/capsule-list';
-import {RocketListPage} from "../pages/rocket-list/rocket-list";
+import { RocketListPage } from "../pages/rocket-list/rocket-list";
+import { AboutPage } from "../pages/about/about";
 
 @Component({
   templateUrl: 'app.html'
@@ -29,7 +30,8 @@ export class MyApp {
       { title: 'List', component: ListPage },
       { title: 'Lauches', component: LauchListPage },
       { title: 'Rockets', component: RocketListPage },
-      { title: 'Capsules', component: CapsuleListPage }
+      { title: 'Capsules', component: CapsuleListPage },
+      { title: 'About', component: AboutPage }
     ];
 
   }
