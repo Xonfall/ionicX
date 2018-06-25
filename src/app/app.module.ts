@@ -13,6 +13,7 @@ import { CapsuleListPage } from '../pages/capsule-list/capsule-list';
 import { SpacexApiProvider } from '../providers/spacex-api/spacex-api';
 import { HttpClientModule } from '@angular/common/http';
 import { CapsuleDetailsPage } from "../pages/capsule-details/capsule-details";
+import { RocketListPage } from "../pages/rocket-list/rocket-list";
 
 @NgModule({
   declarations: [
@@ -20,6 +21,7 @@ import { CapsuleDetailsPage } from "../pages/capsule-details/capsule-details";
     HomePage,
     ListPage,
     LauchListPage,
+    RocketListPage,
     CapsuleListPage,
     CapsuleDetailsPage
   ],
@@ -34,6 +36,7 @@ import { CapsuleDetailsPage } from "../pages/capsule-details/capsule-details";
     HomePage,
     ListPage,
     LauchListPage,
+    RocketListPage,
     CapsuleListPage,
     CapsuleDetailsPage
   ],

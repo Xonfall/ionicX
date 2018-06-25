@@ -4,6 +4,7 @@ import { Observable } from 'rxjs/Observable';
 import { ILauch } from '../../app/Models/ILauch';
 import { ICapsule } from '../../app/Models/ICapsule';
 import {ICapsulePart} from "../../app/Models/ICapsulePart";
+import {IRocket} from "../../app/Models/IRocket";
 
 /*
   Generated class for the SpacexApiProvider provider.
@@ -42,4 +43,11 @@ export class SpacexApiProvider {
     return this.http.get<ICapsulePart[]>(endpointUrl);
   }
 
+  /*
+    Rockets
+   */
+  getAllRockets(params: any) :Observable<IRocket[]> {
+    const endpointUrl = `${this.baseUrl}/rockets`;
+    return this.http.get<IRocket[]>(endpointUrl);
+  }
 }
