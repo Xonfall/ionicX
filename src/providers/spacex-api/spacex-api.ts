@@ -20,7 +20,19 @@ export class SpacexApiProvider {
 
   getAllLaunches(params: any) :Observable<ILauch[]> {
     const endpointUrl = `${this.baseUrl}/launches/all`;
-    const httpParams = Object.getOwnPropertyNames(params).reduce((p, key) => p.set(key, params[key]), new HttpParams());
+    //const httpParams = Object.getOwnPropertyNames(params).reduce((p, key) => p.set(key, params[key]), new HttpParams());
+
+    return this.http.get<ILauch[]>(endpointUrl);
+  }
+
+  getNextLaunches(params: any) :Observable<ILauch[]> {
+    const endpointUrl = `${this.baseUrl}/launches/upcoming`;
+
+    return this.http.get<ILauch[]>(endpointUrl);
+  }
+
+  getPastLaunches(params: any) :Observable<ILauch[]> {
+    const endpointUrl = `${this.baseUrl}/launches`;
 
     return this.http.get<ILauch[]>(endpointUrl);
   }
