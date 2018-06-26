@@ -14,15 +14,14 @@
 </ion-header>
 
 
-<ion-content padding>
-  <ion-list>
-      <ion-item *ngFor="let launchpad of launchpads">
+<ion-content>
+      <div *ngFor="let launchpad of launchpads">
         <ion-card>
-          <img src="../../assets/imgs/spacex-logo.jpg">
-
-          <ion-card-header text-center color="primary">
-            <h2>{{ launchpad.full_name }}</h2>
-          </ion-card-header>
+          <ion-card-content text-center color="primary">
+            <h2>
+              {{ launchpad.full_name }}
+            </h2>
+          </ion-card-content>
 
           <ion-card-content>
             {{ launchpad.details }}
@@ -34,10 +33,10 @@
             <p>{{ launchpad.status }}</p>
           </ion-item>
 
-          <ion-item>
+          <ion-item class="location" (click)="openModalWithParams(launchpad)">
             <ion-icon name="pin" item-left large></ion-icon>
             <h2>Location</h2>
-            <p> {{ launchpad.location.name }}, {{ launchpad.location.region }} </p>
+            <p text-wrap> {{ launchpad.location.name }}, {{ launchpad.location.region }} </p>
           </ion-item>
 
           <ion-item *ngIf="launchpad.vehicles_launched.length > 0">
@@ -45,8 +44,6 @@
             <h2>Rockets</h2>
             <p *ngFor="let vehicule of launchpad.vehicles_launched"> {{ vehicule }} </p>
           </ion-item>
-
         </ion-card>
-      </ion-item>
-    </ion-list>
+      </div>
 </ion-content>

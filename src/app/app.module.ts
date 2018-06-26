@@ -17,6 +17,7 @@ import { CapsuleDetailsPage } from "../pages/capsule-details/capsule-details";
 import { RocketListPage } from "../pages/rocket-list/rocket-list";
 import {RocketDetailsPage} from "../pages/rocket-details/rocket-details";
 import {LaunchpadListPage} from "../pages/launchpad-list/launchpad-list";
+import {LaunchpadLocationPage} from "../pages/launchpad-location/launchpad-location";
 
 @NgModule({
   declarations: [
@@ -29,6 +30,7 @@ import {LaunchpadListPage} from "../pages/launchpad-list/launchpad-list";
     CapsuleListPage,
     CapsuleDetailsPage,
     LaunchpadListPage,
+    LaunchpadLocationPage,
     AboutPage
   ],
   imports: [
@@ -47,6 +49,7 @@ import {LaunchpadListPage} from "../pages/launchpad-list/launchpad-list";
     CapsuleListPage,
     CapsuleDetailsPage,
     LaunchpadListPage,
+    LaunchpadLocationPage,
     AboutPage
   ],
   providers: [

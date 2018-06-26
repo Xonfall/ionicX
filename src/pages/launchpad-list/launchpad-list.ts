@@ -1,7 +1,8 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, ModalController, NavController, NavParams } from 'ionic-angular';
 import { SpacexApiProvider } from '../../providers/spacex-api/spacex-api';
 import { ILaunchpad } from "../../app/Models/ILaunchpad";
+import { LaunchpadLocationPage } from "../launchpad-location/launchpad-location";
 
 @IonicPage()
 @Component({
@@ -11,9 +12,12 @@ import { ILaunchpad } from "../../app/Models/ILaunchpad";
 export class LaunchpadListPage {
   public launchpads: ILaunchpad[];
 
+  myParam = '';
+
   constructor(
     public navCtrl: NavController,
     public navParams: NavParams,
+    public modalCtrl: ModalController,
     private spacexApi: SpacexApiProvider)
   {
     this.spacexApi.getAllLaunchpads({
@@ -21,6 +25,11 @@ export class LaunchpadListPage {
     }).subscribe(data => {
       this.launchpads = data;
     })
+  }
+
+  openModalWithParams(launchpad) {
+    let myModal = this.modalCtrl.create(LaunchpadLocationPage, { 'launchpad': launchpad });
+    myModal.present();
   }
 
   ionViewDidLoad() {
