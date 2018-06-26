@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { SpacexApiProvider } from '../../providers/spacex-api/spacex-api';
 import { ILauch } from '../../app/Models/ILauch';
+import {LocalNotifications} from "@ionic-native/local-notifications";
 
 /**
  * Generated class for the LauchListPage page.
@@ -13,21 +14,33 @@ import { ILauch } from '../../app/Models/ILauch';
 @IonicPage()
 @Component({
   selector: 'page-lauch-list',
-  templateUrl: 'lauch-list.html',
+  templateUrl: 'launch-list.html',
 })
 export class LauchListPage {
-  public lauches: ILauch[];
+  public launches: ILauch[];
 
   constructor(
     public navCtrl: NavController,
     public navParams: NavParams,
-    private spacexApi: SpacexApiProvider)
+    private spacexApi: SpacexApiProvider,
+    private localNotification: LocalNotifications)
     {
+
+      this.localNotification.schedule({
+        id: 1,
+        text: 'Single ILocalNotification',
+        trigger: {at: new Date(new Date().getTime() + 40)},
+        data: { secret: 'de' }
+      });
+      console.log(this.localNotification);
       this.spacexApi.getAllLaunches({
         order: 'desc'
       }).subscribe(data => {
-        this.lauches = data;
+        this.launches = data;
       })
+    }
+
+    youtubeVideo() {
     }
 
   ionViewDidLoad() {

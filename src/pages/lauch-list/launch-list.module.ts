@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { IonicPageModule } from 'ionic-angular';
-import { LauchListPage } from './lauch-list';
+import { LauchListPage } from './launch-list';
 
 @NgModule({
   declarations: [

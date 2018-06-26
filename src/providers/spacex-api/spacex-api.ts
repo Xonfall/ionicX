@@ -29,7 +29,7 @@ export class SpacexApiProvider {
     const endpointUrl = `${this.baseUrl}/launches/all`;
     const httpParams = Object.getOwnPropertyNames(params).reduce((p, key) => p.set(key, params[key]), new HttpParams());
 
-    return this.http.get<ILauch[]>(endpointUrl);
+    return this.http.get<ILauch[]>(endpointUrl, {params: httpParams});
   }
 
   getNextLaunches(params: any) :Observable<ILauch[]> {

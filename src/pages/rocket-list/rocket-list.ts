@@ -33,5 +33,4 @@ export class RocketListPage {
   ionViewDidLoad() {
     console.log("ViewDidLoad");
   }
-
 }

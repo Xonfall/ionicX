@@ -1,0 +1,27 @@
+page-lauch-list {
+
+}
+
+.launch-failed {
+  color: #FFF;
+  background-color: #f53d3d !important;;
+  text-decoration: none;
+
+  font-weight: bold;
+
+  &:active {
+    background-color: #f53d3d !important;
+  }
+}
+
+.launch-success{
+  color: #FFF;
+  background-color: #32db64 !important;;
+  text-decoration: none;
+
+  font-weight: bold;
+
+  &:active {
+    background-color: #32db64 !important;;
+  }
+}
