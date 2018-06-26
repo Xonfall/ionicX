@@ -36,4 +36,17 @@ export class LaunchpadListPage {
     console.log("ViewDidLoad");
   }
 
+  isKnownStatus(status: string) {
+    console.log("Status:",status);
+    if(status=='active') {
+      return 'active';
+    } else if(status=='retired') {
+      return 'retired';
+    } else if(status=='under construction') {
+      return 'under construction';
+    }
+
+    return null;
+  }
+
 }

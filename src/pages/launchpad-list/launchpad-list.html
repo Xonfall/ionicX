@@ -30,7 +30,18 @@
           <ion-item>
             <ion-icon name="home" item-start large></ion-icon>
             <h2>Status</h2>
-            <p>{{ launchpad.status }}</p>
+            <ion-badge color="primary" *ngIf="isKnownStatus(launchpad.status)=='active'">
+              {{ launchpad.status }}
+            </ion-badge>
+            <ion-badge color="light" *ngIf="isKnownStatus(launchpad.status)=='retired'">
+              {{ launchpad.status }}
+            </ion-badge>
+            <ion-badge color="orange" *ngIf="isKnownStatus(launchpad.status)=='under construction'">
+              {{ launchpad.status }}
+            </ion-badge>
+            <ion-badge color="dark" *ngIf="isKnownStatus(launchpad.status)==null">
+              {{ launchpad.status }}
+            </ion-badge>
           </ion-item>
 
           <ion-item class="location" (click)="openModalWithParams(launchpad)">
