@@ -16,6 +16,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { CapsuleDetailsPage } from "../pages/capsule-details/capsule-details";
 import { RocketListPage } from "../pages/rocket-list/rocket-list";
 import {RocketDetailsPage} from "../pages/rocket-details/rocket-details";
+import {LaunchpadListPage} from "../pages/launchpad-list/launchpad-list";
 
 @NgModule({
   declarations: [
@@ -27,8 +28,8 @@ import {RocketDetailsPage} from "../pages/rocket-details/rocket-details";
     RocketDetailsPage,
     CapsuleListPage,
     CapsuleDetailsPage,
-    AboutPage,
-    LauchListPage,
+    LaunchpadListPage,
+    AboutPage
   ],
   imports: [
     BrowserModule,
@@ -45,8 +46,8 @@ import {RocketDetailsPage} from "../pages/rocket-details/rocket-details";
     RocketDetailsPage,
     CapsuleListPage,
     CapsuleDetailsPage,
-    AboutPage,
-    LauchListPage
+    LaunchpadListPage,
+    AboutPage
   ],
   providers: [
     StatusBar,
