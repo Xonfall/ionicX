@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
-import {SpacexApiProvider} from "../../providers/spacex-api/spacex-api";
-import {IAbout} from "../../app/Models/IAbout";
+import { SpacexApiProvider } from "../../providers/spacex-api/spacex-api";
+import { IAbout } from "../../app/Models/IAbout";
 
 /**
  * Generated class for the AboutPage page.

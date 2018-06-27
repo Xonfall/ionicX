@@ -16,7 +16,7 @@
 <ion-content class="card-">
 
   <ion-card *ngFor="let launch of launches">
-    <img src="{{ launch.links.mission_patch }}"/>
+    <img style="cursor: pointer" src="{{ launch.links.mission_patch }}" (click)="viewDetailsLaunche(launch)"/>
     <ion-card-content>
       <ion-card-title>
         {{ launch.mission_name }}

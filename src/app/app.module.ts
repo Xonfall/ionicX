@@ -3,6 +3,7 @@ import { ErrorHandler, NgModule } from '@angular/core';
 import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
 
 import { MyApp } from './app.component';
+
 import { HomePage } from '../pages/home/home';
 import { ListPage } from '../pages/list/list';
 import { AboutPage } from '../pages/about/about';
@@ -15,21 +16,15 @@ import { SpacexApiProvider } from '../providers/spacex-api/spacex-api';
 import { HttpClientModule } from '@angular/common/http';
 import { CapsuleDetailsPage } from "../pages/capsule-details/capsule-details";
 import { RocketListPage } from "../pages/rocket-list/rocket-list";
-import {RocketDetailsPage} from "../pages/rocket-details/rocket-details";
-import {LocalNotifications} from "@ionic-native/local-notifications";
+import { RocketDetailsPage } from "../pages/rocket-details/rocket-details";
+import { LocalNotifications } from "@ionic-native/local-notifications";
+import { LaunchDetailsPage } from "../pages/launch-details/launch-details";
 
 @NgModule({
   declarations: [
     MyApp,
     HomePage,
-    ListPage,
-    LauchListPage,
-    RocketListPage,
-    RocketDetailsPage,
-    CapsuleListPage,
-    CapsuleDetailsPage,
-    AboutPage,
-    LauchListPage,
+    ListPage
   ],
   imports: [
     BrowserModule,
@@ -41,13 +36,13 @@ import {LocalNotifications} from "@ionic-native/local-notifications";
     MyApp,
     HomePage,
     ListPage,
-    LauchListPage,
     RocketListPage,
     RocketDetailsPage,
     CapsuleListPage,
     CapsuleDetailsPage,
     AboutPage,
-    LauchListPage
+    LauchListPage,
+    LaunchDetailsPage
   ],
   providers: [
     StatusBar,
