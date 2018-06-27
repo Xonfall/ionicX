@@ -6,6 +6,7 @@ import { ILauch } from '../../app/Models/ILauch';
 import { ICapsule } from '../../app/Models/ICapsule';
 import { ICapsulePart } from "../../app/Models/ICapsulePart";
 import { IRocket } from "../../app/Models/IRocket";
+import { ILaunchpad } from "../../app/Models/ILaunchpad";
 import { IAbout } from '../../app/Models/IAbout';
 
 /*
@@ -63,6 +64,14 @@ export class SpacexApiProvider {
   getAllRockets(params: any) :Observable<IRocket[]> {
     const endpointUrl = `${this.baseUrl}/rockets`;
     return this.http.get<IRocket[]>(endpointUrl);
+  }
+
+  /*
+    Launchpads
+   */
+  getAllLaunchpads(params: any) :Observable<ILaunchpad[]> {
+    const endpointUrl = `${this.baseUrl}/launchpads`;
+    return this.http.get<ILaunchpad[]>(endpointUrl);
   }
 
   /*

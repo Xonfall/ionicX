@@ -1,0 +1,18 @@
+page-launchpad-list {
+
+  ion-card {
+    margin-bottom: 24px !important;
+  }
+
+  .location {
+    cursor: pointer;
+  }
+
+  .location:hover {
+    color: #488aff;
+  }
+
+  ion-card-content h2 {
+    color: #488aff !important;
+  }
+}

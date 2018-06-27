@@ -7,6 +7,10 @@ import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
 import { ListPage } from '../pages/list/list';
 import { AboutPage } from '../pages/about/about';
+import { LaunchDetailsPage } from "../pages/launch-details/launch-details";
+import { RocketDetailsPage } from "../pages/rocket-details/rocket-details";
+import { LaunchpadListPage } from "../pages/launchpad-list/launchpad-list";
+import { LaunchpadLocationPage } from "../pages/launchpad-location/launchpad-location";
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
@@ -14,17 +18,27 @@ import { LauchListPage } from '../pages/lauch-list/launch-list';
 import { CapsuleListPage } from '../pages/capsule-list/capsule-list';
 import { SpacexApiProvider } from '../providers/spacex-api/spacex-api';
 import { HttpClientModule } from '@angular/common/http';
+
 import { CapsuleDetailsPage } from "../pages/capsule-details/capsule-details";
 import { RocketListPage } from "../pages/rocket-list/rocket-list";
-import { RocketDetailsPage } from "../pages/rocket-details/rocket-details";
 import { LocalNotifications } from "@ionic-native/local-notifications";
-import { LaunchDetailsPage } from "../pages/launch-details/launch-details";
+
 
 @NgModule({
   declarations: [
     MyApp,
     HomePage,
-    ListPage
+    ListPage,
+    RocketListPage,
+    RocketDetailsPage,
+    CapsuleListPage,
+    CapsuleDetailsPage,
+    LauchListPage,
+    LaunchDetailsPage,
+    LaunchpadListPage,
+    LaunchpadLocationPage,
+    AboutPage
+
   ],
   imports: [
     BrowserModule,
@@ -40,9 +54,11 @@ import { LaunchDetailsPage } from "../pages/launch-details/launch-details";
     RocketDetailsPage,
     CapsuleListPage,
     CapsuleDetailsPage,
-    AboutPage,
     LauchListPage,
-    LaunchDetailsPage
+    LaunchDetailsPage,
+    LaunchpadListPage,
+    LaunchpadLocationPage,
+    AboutPage
   ],
   providers: [
     StatusBar,
