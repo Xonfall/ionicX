@@ -4,7 +4,6 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 
 import { HomePage } from '../pages/home/home';
-import { ListPage } from '../pages/list/list';
 import { LauchListPage } from '../pages/lauch-list/launch-list';
 import { CapsuleListPage } from '../pages/capsule-list/capsule-list';
 import { RocketListPage } from "../pages/rocket-list/rocket-list";
@@ -28,7 +27,6 @@ export class MyApp {
     // Ajout d'élément dans une page !
     this.pages = [
       { title: 'Home', component: HomePage },
-      { title: 'List', component: ListPage },
       { title: 'Launches', component: LauchListPage },
       { title: 'Rockets', component: RocketListPage },
       { title: 'Capsules', component: CapsuleListPage },

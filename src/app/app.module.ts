@@ -5,7 +5,6 @@ import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
 import { MyApp } from './app.component';
 
 import { HomePage } from '../pages/home/home';
-import { ListPage } from '../pages/list/list';
 import { AboutPage } from '../pages/about/about';
 import { LaunchDetailsPage } from "../pages/launch-details/launch-details";
 import { RocketDetailsPage } from "../pages/rocket-details/rocket-details";
@@ -28,7 +27,6 @@ import { LocalNotifications } from "@ionic-native/local-notifications";
   declarations: [
     MyApp,
     HomePage,
-    ListPage,
     RocketListPage,
     RocketDetailsPage,
     CapsuleListPage,
@@ -49,7 +47,6 @@ import { LocalNotifications } from "@ionic-native/local-notifications";
   entryComponents: [
     MyApp,
     HomePage,
-    ListPage,
     RocketListPage,
     RocketDetailsPage,
     CapsuleListPage,
