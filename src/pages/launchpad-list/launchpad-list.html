@@ -53,8 +53,13 @@
           <ion-item *ngIf="launchpad.vehicles_launched.length > 0">
             <ion-icon name="jet" item-left large></ion-icon>
             <h2>Rockets</h2>
-            <p *ngFor="let vehicule of launchpad.vehicles_launched"> {{ vehicule }} </p>
+            <button ion-button class="btn-rocket"
+                    *ngFor="let vehicule of launchpad.vehicles_launched"
+                    (click)="rocketDetailPage(vehicule)">
+              {{ vehicule }}
+            </button>
           </ion-item>
+
         </ion-card>
       </div>
 </ion-content>
