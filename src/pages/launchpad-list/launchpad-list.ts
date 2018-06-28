@@ -31,6 +31,11 @@ export class LaunchpadListPage {
 
   ionViewDidLoad() {
     console.log("ViewDidLoad");
+    this.spacexApi.getAllRockets({
+      order: 'desc'
+    }).subscribe(data => {
+      this.rockets = data;
+    });
   }
 
   openModalWithParams(launchpad) {
@@ -40,12 +45,6 @@ export class LaunchpadListPage {
 
   // Recherche la rocket associé en cas de click et ouvre une page des détails
   rocketDetailPage(rocketName){
-    this.spacexApi.getAllRockets({
-      order: 'desc'
-    }).subscribe(data => {
-      this.rockets = data;
-    });
-
     // En cas d'erreur de connexion, on ne fait rien
     if(this.rockets==null) {
       return;
