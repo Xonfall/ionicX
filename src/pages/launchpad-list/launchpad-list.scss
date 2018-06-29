@@ -1,6 +1,7 @@
 page-launchpad-list {
 
   ion-card {
+    padding: 12px 6px;
     margin-bottom: 24px !important;
   }
 
@@ -14,5 +15,10 @@ page-launchpad-list {
 
   ion-card-content h2 {
     color: #488aff !important;
+  }
+
+  .btn-rocket {
+    padding: 12px !important;
+    background-color: #488aff;
   }
 }

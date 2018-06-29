@@ -3,6 +3,8 @@ import { IonicPage, ModalController, NavController, NavParams } from 'ionic-angu
 import { SpacexApiProvider } from '../../providers/spacex-api/spacex-api';
 import { ILaunchpad } from "../../app/Models/ILaunchpad";
 import { LaunchpadLocationPage } from "../launchpad-location/launchpad-location";
+import {RocketDetailsPage} from "../rocket-details/rocket-details";
+import {IRocket} from "../../app/Models/IRocket";
 
 @IonicPage()
 @Component({
@@ -10,8 +12,8 @@ import { LaunchpadLocationPage } from "../launchpad-location/launchpad-location"
   templateUrl: 'launchpad-list.html',
 })
 export class LaunchpadListPage {
-  public launchpads: ILaunchpad[];
-
+  private launchpads: ILaunchpad[];
+  private rockets: IRocket[];
   myParam = '';
 
   constructor(
@@ -27,17 +29,40 @@ export class LaunchpadListPage {
     })
   }
 
+  ionViewDidLoad() {
+    console.log("ViewDidLoad");
+    this.spacexApi.getAllRockets({
+      order: 'desc'
+    }).subscribe(data => {
+      this.rockets = data;
+    });
+  }
+
   openModalWithParams(launchpad) {
     let myModal = this.modalCtrl.create(LaunchpadLocationPage, { 'launchpad': launchpad });
     myModal.present();
   }
 
-  ionViewDidLoad() {
-    console.log("ViewDidLoad");
+  // Recherche la rocket associé en cas de click et ouvre une page des détails
+  rocketDetailPage(rocketName){
+    // En cas d'erreur de connexion, on ne fait rien
+    if(this.rockets==null) {
+      return;
+    }
+
+    // On récupère les rockets et on compare le nom avec ceux de la liste
+    for(let i=0; i<this.rockets.length; i++) {
+      if(this.rockets[i].name == rocketName) {
+        this.navCtrl.push(RocketDetailsPage,  {
+          rocket: this.rockets[i]
+        });
+        return;
+      }
+
+    }
   }
 
   isKnownStatus(status: string) {
-    console.log("Status:",status);
     if(status=='active') {
       return 'active';
     } else if(status=='retired') {
