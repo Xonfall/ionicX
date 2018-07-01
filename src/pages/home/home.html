@@ -9,6 +9,7 @@
 
 <ion-content padding>
   <h1 text-center *ngIf="launch != null">{{launch.mission_name}}  <span>n° {{launch.flight_number}}</span></h1>
+  
   <ul center>
     <li *ngIf="days!==0">{{days}} d</li>
     <li>{{hours}} h</li>

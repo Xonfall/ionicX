@@ -26,10 +26,13 @@ export class HomePage {
     public navCtrl: NavController,
     public navParams: NavParams,
     private spacexApi: SpacexApiProvider) {
-    this.spacexApi.getNextLaunch().subscribe(data => {
+    this.spacexApi.getNextLaunch({
+      order: 'desc'
+    }).subscribe(data => {
       this.launch = data;
   
       this.date = this.launch.launch_date_unix - Math.round(Date.now() / 1000);
+
       setInterval(function () {
         this.interVal =  this.date--;
 
@@ -46,6 +49,7 @@ export class HomePage {
 
         clearInterval(this.interval);
       }.bind(this), 1000);
+      
     })
   }
 
