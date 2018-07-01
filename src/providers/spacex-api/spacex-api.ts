@@ -8,6 +8,7 @@ import { ICapsulePart } from "../../app/Models/ICapsulePart";
 import { IRocket } from "../../app/Models/IRocket";
 import { ILaunchpad } from "../../app/Models/ILaunchpad";
 import { IAbout } from '../../app/Models/IAbout';
+import { INextLaunch } from '../../app/Models/INextLaunch';
 
 /*
   Generated class for the SpacexApiProvider provider.
@@ -43,6 +44,11 @@ export class SpacexApiProvider {
     const endpointUrl = `${this.baseUrl}/launches`;
 
     return this.http.get<ILauch[]>(endpointUrl);
+  }
+
+  getNextLaunch(params: any) :Observable<INextLaunch> {
+    const endpointUrl = `${this.baseUrl}/launches/next`;
+    return this.http.get<INextLaunch>(endpointUrl);
   }
 
   /*
