@@ -21,6 +21,7 @@ export class HomePage {
   public hours:Number;
   public minutes:Number;
   public secondes:Number;
+  
 
   constructor(
     public navCtrl: NavController,
@@ -49,11 +50,12 @@ export class HomePage {
 
         clearInterval(this.interval);
       }.bind(this), 1000);
-      
+
     })
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad HomePage');
   }
+
 }

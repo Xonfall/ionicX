@@ -17,4 +17,12 @@
     <li>{{secondes}} s</li>
   </ul>
 
+  <h4>Rocket details</h4>
+  <span *ngIf="launch?.rocket != null">{{launch?.rocket.rocket_name}}</span>
+  <span *ngIf="launch?.rocket != null">{{launch?.rocket.rocket_type}}</span>
+  
+
+  <ion-badge  *ngIf="launch?.links.video_link != null" color ="danger" onclick="window.open('launch?.links.video_link','_system', 'location=yes')">Youtube Live</ion-badge>
+
+
 </ion-content>
