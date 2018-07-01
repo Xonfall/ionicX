@@ -20,13 +20,17 @@ import {LaunchDetailsPage} from "../launch-details/launch-details";
 })
 export class LauchListPage {
   public launches: ILauch[];
+  public defaultPropertie;
 
   constructor(
     public navCtrl: NavController,
     public navParams: NavParams,
     private spacexApi: SpacexApiProvider,
-    private localNotification: LocalNotifications)
+    private localNotification: LocalNotifications
+  )
   {
+    this.defaultPropertie = 'camera';
+    this.allLaunches();
 
     this.localNotification.schedule({
       id: 1,
@@ -34,18 +38,36 @@ export class LauchListPage {
       trigger: {at: new Date(new Date().getTime() + 40)},
       data: { secret: 'de' }
     });
-    console.log(this.localNotification);
-    this.spacexApi.getAllLaunches({
-      order: 'desc'
-    }).subscribe(data => {
-      this.launches = data;
-    })
   }
 
   viewDetailsLaunche(launchDetails) {
     this.navCtrl.push(LaunchDetailsPage,{
       launchDetails: launchDetails
     });
+  }
+
+  nextLaunches() {
+    this.spacexApi.getNextLaunches({
+      order: 'desc'
+    }).subscribe(data => {
+      this.launches = data;
+    })
+  }
+
+  pastLaunches() {
+    this.spacexApi.getPastLaunches({
+      order: 'desc'
+    }).subscribe(data => {
+      this.launches = data;
+    })
+  }
+
+  allLaunches() {
+    this.spacexApi.getAllLaunches({
+      order: 'desc'
+    }).subscribe(data => {
+      this.launches = data;
+    })
   }
 
   ionViewDidLoad() {

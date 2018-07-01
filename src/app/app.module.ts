@@ -38,7 +38,6 @@ import { LocalNotifications } from "@ionic-native/local-notifications";
     LaunchpadListPage,
     LaunchpadLocationPage,
     AboutPage
-
   ],
   imports: [
     BrowserModule,
