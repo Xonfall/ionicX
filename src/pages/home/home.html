@@ -7,15 +7,42 @@
   </ion-navbar>
 </ion-header>
 
-<ion-content padding>
-  <h1 text-center *ngIf="launch != null">{{launch.mission_name}}  <span>n° {{launch.flight_number}}</span></h1>
+<ion-content class="card-background-page">
   
-  <ul center>
-    <li *ngIf="days!==0">{{days}} d</li>
-    <li>{{hours}} h</li>
-    <li>{{minutes}} m</li>
-    <li>{{secondes}} s</li>
-  </ul>
+
+  <ion-card>
+    <div class="countdown">
+
+        <img src="../../assets/imgs/spacex-logo.jpg">
+        <h1 text-center class="card-title" *ngIf="launch != null">{{launch.mission_name}}  </h1>
+        <h2 class="card-subtitle" *ngIf="launch != null">Flight n° {{launch.flight_number}}</h2>
+
+      <div>
+        <span class="days">{{days}}</span>
+        <div class="label">Days</div>
+      </div>
+      <div>
+        <span class="hours">{{hours}}</span>
+        <div class="label">Hours</div>
+      </div>
+      <div>
+        <span class="minutes">{{minutes}}</span>
+        <div class="label">Minutes</div>
+      </div>
+      <div>
+        <span class="seconds">{{secondes}}</span>
+        <div class="label">Seconds</div>
+      </div>
+
+    </div>
+
+    
+
+  </ion-card>
+
+  
+
+
 
   <h4>Rocket details</h4>
   <span *ngIf="launch?.rocket != null">{{launch?.rocket.rocket_name}}</span>
