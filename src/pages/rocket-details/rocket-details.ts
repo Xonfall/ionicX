@@ -17,6 +17,10 @@ export class RocketDetailsPage {
     this.rocket = navParams.get("rocket");
   }
 
+  public capitalize(str) {
+    return str.charAt(0).toUpperCase() + str.slice(1);
+  }
+
   ionViewDidLoad() {
     console.log("ViewDidLoad");
   }
