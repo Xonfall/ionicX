@@ -9,11 +9,54 @@
     <button ion-button menuToggle>
       <ion-icon name="menu"></ion-icon>
     </button>
-    <ion-title>Rocket : {{ rocket.name }}</ion-title>
+    <ion-title>{{ rocket.name }}</ion-title>
   </ion-navbar>
 </ion-header>
 
-
 <ion-content padding>
+    <div>
+      <h3>Informations</h3>
+      <span>Status : {{ rocket.active }}</span><br>
+      <span>Cost per launch : ${{ rocket.cost_per_launch }}</span><br>
+      <span>Success rate : {{ rocket.success_rate_pct }}%</span><br>
+      <span>First Flight : {{ rocket.first_flight }}</span><br>
+    </div>
+    <br>
 
+    <div>
+      <h3>Specifications</h3>
+      <span>Heigth : {{ rocket.height.meters }}m</span><br>
+      <span>Diameter : {{ rocket.diameter.meters }}m</span><br>
+      <span>Mass : {{ rocket.mass.kg }}kg</span><br>
+    </div>
+    <br>
+
+    <div>
+      <h3>First Stage</h3>
+      <span>Thrust : {{ rocket.first_stage.thrust_sea_level.kN }}kN</span><br>
+      <span>Engine(s) : {{ rocket.first_stage.engines }}x {{ capitalize(rocket.engines.type) }}</span><br>
+      <span>Burn time : {{ rocket.first_stage.burn_time_sec }}s</span><br>
+    </div>
+    <br>
+
+    <div>
+      <h3>Second Stage</h3>
+      <span>Thrust : {{ rocket.second_stage.thrust.kN }}kN</span><br>
+      <span>Engine(s) : {{ rocket.second_stage.engines }}</span><br>
+      <span>Burn time : {{ rocket.second_stage.burn_time_sec }}s</span><br>
+    </div>
+    <br>
+
+    <div>
+      <h3>Payload weights</h3>
+      <div *ngFor="let payloadWeight of rocket.payload_weights">
+        <span>{{ payloadWeight.name }} : {{ payloadWeight.kg }}kg</span><br>
+      </div>
+    </div>
+    <br>
+
+    <div>
+      <h3>Description</h3>
+      <p>{{ rocket.description }}</p>
+    </div>
 </ion-content>

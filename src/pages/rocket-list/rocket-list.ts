@@ -21,7 +21,9 @@ export class RocketListPage {
       order: 'desc'
     }).subscribe(data => {
       this.rockets = data;
-    })
+      this.rockets.reverse(); // Date la plus ancienne en 1er
+    });
+
   }
 
   rocketDetailPage(rocket){
