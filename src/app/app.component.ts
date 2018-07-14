@@ -10,6 +10,8 @@ import { RocketListPage } from "../pages/rocket-list/rocket-list";
 import { LaunchpadListPage } from "../pages/launchpad-list/launchpad-list";
 import { AboutPage } from "../pages/about/about";
 
+import { CacheService } from "ionic-cache";
+
 @Component({
   templateUrl: 'app.html'
 })
@@ -20,7 +22,10 @@ export class MyApp {
 
   pages: Array<{title: string, component: any}>;
 
-  constructor(public platform: Platform, public statusBar: StatusBar, public splashScreen: SplashScreen) {
+  constructor(public platform: Platform
+              , public statusBar: StatusBar
+              , public splashScreen: SplashScreen
+              , public cache: CacheService) {
     this.initializeApp();
 
     // used for an example of ngFor and navigation

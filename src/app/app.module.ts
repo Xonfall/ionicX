@@ -22,6 +22,7 @@ import { CapsuleDetailsPage } from "../pages/capsule-details/capsule-details";
 import { RocketListPage } from "../pages/rocket-list/rocket-list";
 import { LocalNotifications } from "@ionic-native/local-notifications";
 
+import { CacheModule } from "ionic-cache";
 
 @NgModule({
   declarations: [
@@ -41,6 +42,7 @@ import { LocalNotifications } from "@ionic-native/local-notifications";
     BrowserModule,
     HttpClientModule,
     IonicModule.forRoot(MyApp),
+    CacheModule.forRoot()
   ],
   bootstrap: [IonicApp],
   entryComponents: [
