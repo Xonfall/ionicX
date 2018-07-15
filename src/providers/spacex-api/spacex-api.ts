@@ -9,6 +9,8 @@ import { IRocket } from "../../app/Models/IRocket";
 import { ILaunchpad } from "../../app/Models/ILaunchpad";
 import { IAbout } from '../../app/Models/IAbout';
 import { INextLaunch } from '../../app/Models/INextLaunch';
+import {CacheService} from "ionic-cache";
+
 
 /*
   Generated class for the SpacexApiProvider provider.
@@ -20,7 +22,7 @@ import { INextLaunch } from '../../app/Models/INextLaunch';
 export class SpacexApiProvider {
   private baseUrl = 'https://api.spacexdata.com/v2';
 
-  constructor(private http: HttpClient) {
+  constructor(private http: HttpClient, private cache: CacheService) {
 
   }
 
@@ -29,21 +31,21 @@ export class SpacexApiProvider {
    */
   getAllLaunches(params: any) :Observable<ILauch[]> {
     const endpointUrl = `${this.baseUrl}/launches/all`;
-    const httpParams = Object.getOwnPropertyNames(params).reduce((p, key) => p.set(key, params[key]), new HttpParams());
-
-    return this.http.get<ILauch[]>(endpointUrl, {params: httpParams});
+    let httpParams = Object.getOwnPropertyNames(params).reduce((p, key) => p.set(key, params[key]), new HttpParams());
+    let request = this.http.get<ILauch[]>(endpointUrl, {params: httpParams});
+    return this.cache.loadFromDelayedObservable(endpointUrl, request, 'allLaunches', 5, 'all');
   }
 
   getNextLaunches(params: any) :Observable<ILauch[]> {
     const endpointUrl = `${this.baseUrl}/launches/upcoming`;
-
-    return this.http.get<ILauch[]>(endpointUrl);
+    let request = this.http.get<ILauch[]>(endpointUrl);
+    return this.cache.loadFromDelayedObservable(endpointUrl, request, 'upcomingLaunches', 5, 'all');
   }
 
   getPastLaunches(params: any) :Observable<ILauch[]> {
     const endpointUrl = `${this.baseUrl}/launches`;
-
-    return this.http.get<ILauch[]>(endpointUrl);
+    let request = this.http.get<ILauch[]>(endpointUrl);
+    return this.cache.loadFromDelayedObservable(endpointUrl, request, 'pastLaunches', 5, 'all');
   }
 
   getNextLaunch(params: any) :Observable<INextLaunch> {
@@ -56,12 +58,14 @@ export class SpacexApiProvider {
    */
   getAllCapsules(params: any) :Observable<ICapsule[]> {
     const endpointUrl = `${this.baseUrl}/capsules`;
-    return this.http.get<ICapsule[]>(endpointUrl);
+    let request = this.http.get<ICapsule[]>(endpointUrl);
+    return this.cache.loadFromDelayedObservable(endpointUrl, request, 'allCapsules', 5, 'all');
   }
 
   getCapsuleDetailsById(capsule_id: string) :Observable<ICapsulePart[]> {
     const endpointUrl = `${this.baseUrl}/parts/caps?capsule_id=`+capsule_id;
-    return this.http.get<ICapsulePart[]>(endpointUrl);
+    let request = this.http.get<ICapsulePart[]>(endpointUrl);
+    return this.cache.loadFromDelayedObservable(endpointUrl, request, 'capsuleDetailsById', 5, 'all');
   }
 
   /*
@@ -69,7 +73,8 @@ export class SpacexApiProvider {
    */
   getAllRockets(params: any) :Observable<IRocket[]> {
     const endpointUrl = `${this.baseUrl}/rockets`;
-    return this.http.get<IRocket[]>(endpointUrl);
+    let request = this.http.get<IRocket[]>(endpointUrl);
+    return this.cache.loadFromDelayedObservable(endpointUrl, request, 'rockets', 5, 'all');
   }
 
   /*
@@ -77,7 +82,8 @@ export class SpacexApiProvider {
    */
   getAllLaunchpads(params: any) :Observable<ILaunchpad[]> {
     const endpointUrl = `${this.baseUrl}/launchpads`;
-    return this.http.get<ILaunchpad[]>(endpointUrl);
+    let request = this.http.get<ILaunchpad[]>(endpointUrl);
+    return this.cache.loadFromDelayedObservable(endpointUrl, request, 'allLaunchpads', 5, 'all');
   }
 
   /*
@@ -85,7 +91,7 @@ export class SpacexApiProvider {
   */
   getAboutInformations(params: any) :Observable<IAbout> {
     const endpointUrl = `${this.baseUrl}/info`;
-
-    return this.http.get<IAbout>(endpointUrl);
+    let request = this.http.get<IAbout>(endpointUrl);
+    return this.cache.loadFromDelayedObservable(endpointUrl, request, 'about', 5, 'all');
   }
 }
