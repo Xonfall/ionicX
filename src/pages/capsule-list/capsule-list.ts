@@ -6,7 +6,7 @@ import { CapsuleDetailsPage } from '../capsule-details/capsule-details';
 
 @IonicPage()
 @Component({
-  selector: 'page-capsule-list',A
+  selector: 'page-capsule-list',
   templateUrl: 'capsule-list.html',
 })
 export class CapsuleListPage {
@@ -26,7 +26,7 @@ export class CapsuleListPage {
 
   capsuleDetailPage(capsule){
     this.navCtrl.push(CapsuleDetailsPage,  {
-      capsulAAe: capsule
+      capsule: capsule
     });
   }
 

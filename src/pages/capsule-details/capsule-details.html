@@ -53,7 +53,7 @@
 
   <h3>Parts</h3>
   <ion-list>
-    <button ion-item *ngFor="let capsulePart of capsuleParts" (click)="partSelected(item)AA">
+    <button ion-item *ngFor="let capsulePart of capsuleParts" (click)="showPart(capsulePart)">
       {{ capsulePart.capsule_serial }}
     </button>
   </ion-list>
