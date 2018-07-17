@@ -3,17 +3,59 @@
     <button ion-button menuToggle>
       <ion-icon name="menu"></ion-icon>
     </button>
-    <ion-title>Capsules : {{ capsule.name }}</ion-title>
+    <ion-title>{{ capsule.name }}</ion-title>
   </ion-navbar>
 </ion-header>
 
 
 <ion-content padding>
-  <ion-content padding>
-    <ion-list>
-      <ion-item *ngFor="let capsulePart of capsuleParts">
-        {{ capsulePart.capsule_serial }}
-      </ion-item>
-    </ion-list>
-  </ion-content>
+  <div>
+    <h3>Informations</h3>
+    <span>Status : {{ capsule.active }}</span><br>
+    <span>Crew capacity : {{ capsule.crew_capacity }}</span><br>
+  </div>
+  <br>
+
+  <div>
+    <h3>Specifications</h3>
+    <span>Sidewall angle : {{ capsule.sidewall_angle_deg }}°</span><br>
+    <span>Orbit duration : {{ capsule.orbit_duration_yr }}s</span><br>
+    <span>Diameter : {{ capsule.diameter.meters }}m</span><br>
+  </div>
+  <br>
+
+  <div *ngFor="let thruster of capsule.thrusters">
+    <div>
+      <h3>Thrusters</h3>
+        <span>Type : {{ thruster.type }}</span><br>
+        <span>Amount : {{ thruster.amount }}</span><br>
+        <span>Pods : {{ thruster.pods }}</span><br>
+        <span>Fuel 1 : {{ capitalize(thruster.fuel_1) }}</span><br>
+        <span>Fuel 2 : {{ capitalize(thruster.fuel_2) }}</span><br>
+        <span>Thrust: {{ thruster.thrust.kN }}kN</span><br>
+    </div>
+    <br>
+  </div>
+
+  <div>
+    <h3>Launch payload</h3>
+    <span>Mass : {{ capsule.launch_payload_mass.kg }}kg</span><br>
+    <span>Volume : {{ capsule.launch_payload_vol.cubic_meters }}m</span><br>
+  </div>
+  <br>
+
+  <div>
+    <h3>Return payload</h3>
+    <span>Mass : {{ capsule.return_payload_mass.kg }}kg</span><br>
+    <span>Volume : {{ capsule.return_payload_vol.cubic_meters }}m</span><br>
+  </div>
+  <br>
+
+  <h3>Parts</h3>
+  <ion-list>
+    <button ion-item *ngFor="let capsulePart of capsuleParts" (click)="partSelected(item)AA">
+      {{ capsulePart.capsule_serial }}
+    </button>
+  </ion-list>
+
 </ion-content>

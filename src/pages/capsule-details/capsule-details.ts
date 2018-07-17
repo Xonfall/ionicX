@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams } from 'ionic-angular';A
 import { ICapsule } from '../../app/Models/ICapsule';
 import { SpacexApiProvider } from "../../providers/spacex-api/spacex-api";
 import { ICapsulePart } from "../../app/Models/ICapsulePart";
@@ -25,6 +25,10 @@ export class CapsuleDetailsPage {
         this.capsuleParts = data;
       })
     }
+
+  private capitalize(str) {
+    return str.charAt(0).toUpperCase() + str.slice(1);
+  }
 
   ionViewDidLoad() {
     console.log("ViewDidLoad");

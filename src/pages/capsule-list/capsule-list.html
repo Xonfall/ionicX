@@ -15,11 +15,26 @@
 
 
 <ion-content padding>
-  <ion-list>
-      <ion-item *ngFor="let capsule of capsules">
-        <button ion-button (click)="capsuleDetailPage(capsule)">
-          <h2>{{ capsule.name }}</h2>
-        </button>
+  <div *ngFor="let capsule of capsules">
+    <ion-card (click)="capsuleDetailPage(capsule)">
+
+      <ion-card-content text-center color="primary">
+        <h1>
+          <b>{{ capsule.name }}</b>
+        </h1>
+      </ion-card-content>
+
+      <ion-item>
+        <ion-icon name="information-circle" item-start></ion-icon>
+        <h2>Status</h2>
+        <ion-badge color="green" *ngIf="capsule.active==true">
+          Active
+        </ion-badge>
+        <ion-badge color="red" *ngIf="capsule.active==false">
+          Inactive
+        </ion-badge>
       </ion-item>
-    </ion-list>
+
+    </ion-card>
+  </div>
 </ion-content>
