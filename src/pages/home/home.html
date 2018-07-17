@@ -7,12 +7,49 @@
   </ion-navbar>
 </ion-header>
 
-<ion-content padding>
-  <h3>Ionic Menu Starter</h3>
+<ion-content class="card-background-page">
+  
 
-  <p>
-    If you get lost, the <a href="http://ionicframework.com/docs/v2">docs</a> will show you the way.
-  </p>
+  <ion-card>
+    <div class="countdown">
 
-  <button ion-button secondary menuToggle>Toggle Menu</button>
+        <img src="../../assets/imgs/spacex-logo.jpg">
+        <h1 text-center class="card-title" *ngIf="launch != null">{{launch.mission_name}}  </h1>
+        <h2 class="card-subtitle" *ngIf="launch != null">Flight n° {{launch.flight_number}}</h2>
+
+      <div>
+        <span class="days">{{days}}</span>
+        <div class="label">Days</div>
+      </div>
+      <div>
+        <span class="hours">{{hours}}</span>
+        <div class="label">Hours</div>
+      </div>
+      <div>
+        <span class="minutes">{{minutes}}</span>
+        <div class="label">Minutes</div>
+      </div>
+      <div>
+        <span class="seconds">{{secondes}}</span>
+        <div class="label">Seconds</div>
+      </div>
+
+    </div>
+
+    
+
+  </ion-card>
+
+  
+
+
+
+  <h4>Rocket details</h4>
+  <span *ngIf="launch?.rocket != null">{{launch?.rocket.rocket_name}}</span>
+  <span *ngIf="launch?.rocket != null">{{launch?.rocket.rocket_type}}</span>
+  
+
+  <ion-badge  *ngIf="launch?.links.video_link != null" color ="danger" onclick="window.open('launch?.links.video_link','_system', 'location=yes')">Youtube Live</ion-badge>
+
+
 </ion-content>

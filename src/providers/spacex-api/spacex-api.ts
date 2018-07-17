@@ -8,7 +8,10 @@ import { ICapsulePart } from "../../app/Models/ICapsulePart";
 import { IRocket } from "../../app/Models/IRocket";
 import { ILaunchpad } from "../../app/Models/ILaunchpad";
 import { IAbout } from '../../app/Models/IAbout';
+import { INextLaunch } from '../../app/Models/INextLaunch';
 import {CacheService} from "ionic-cache";
+
+
 
 /*
   Generated class for the SpacexApiProvider provider.
@@ -44,6 +47,11 @@ export class SpacexApiProvider {
     const endpointUrl = `${this.baseUrl}/launches`;
     let request = this.http.get<ILauch[]>(endpointUrl);
     return this.cache.loadFromDelayedObservable(endpointUrl, request, 'pastLaunches', 5, 'all');
+  }
+
+  getNextLaunch(params: any) :Observable<INextLaunch> {
+    const endpointUrl = `${this.baseUrl}/launches/next`;
+    return this.http.get<INextLaunch>(endpointUrl);
   }
 
   /*

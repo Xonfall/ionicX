@@ -1,3 +1,55 @@
-page-home {
+.countdown {
+    font-family: sans-serif;
+    color: #0099cf;
+    display: inline-block;
+    font-weight: 300;
+    font-size: 15px;
+    text-align: center;
+    > div {
+      padding: 0 8px 0;
+      margin: 10px 0px 10px;
+      display: inline-block;
+      border-right: 1px solid #ddf1ff;
+      &:last-of-type {
+        border-right: none;
+      }
+    }
+    div > {
+      span {
+        padding: 0 10px 0;
+        display: inline-block;
+      }
+      .label {
+        padding-top: 5px;
+        font-size: 12px;
+        color: #cdcdcd;
+        text-transform: uppercase;
+      }
+    }
+}
 
+.card-background-page {
+
+    ion-card {
+      position: relative;
+      text-align: center;
+    }
+
+    .card-title {
+        position: absolute;
+        top: 35%;
+        font-size: 1.5em;
+        width: 100%;
+        font-weight: bold;
+        color: #fff;
+    }
+
+    .card-subtitle {
+        font-size: 1.0em;
+        position: absolute;
+        top: 45%;
+        width: 100%;
+        color: #fff;
+    }
+  
 }
