@@ -14,5 +14,15 @@
 
 
 <ion-content padding>
-{{ launchDetail.mission_name }}
+  <div style="margin: 0 auto;">
+    <img src="{{ this.launchDetail.links.mission_patch }}" alt="">
+  </div>
+  <div>
+    <h3>Informations</h3>
+    <span><b>Site de lancement : </b>{{ this.launchDetail.launch_site.site_name_long }}</span><br>
+    <span><b>Nom de la mission : </b>{{ this.launchDetail.mission_name }}</span><br>
+    <span><b>Détails de la mission :</b></span><br>
+    <span>{{ this.launchDetail.details }}</span><br>
+  </div>
+  <br>
 </ion-content>

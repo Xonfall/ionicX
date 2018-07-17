@@ -7,14 +7,14 @@
   </ion-navbar>
   <ion-toolbar>
     <ion-segment [(ngModel)]="defaultPropertie" color="primary">
-      <ion-segment-button value="camera" (click)="allLaunches()">
-        <ion-icon name="camera"></ion-icon>
+      <ion-segment-button value="arrow-back" (click)="pastLaunches()">
+        <ion-icon name="arrow-back"></ion-icon>
       </ion-segment-button>
-      <ion-segment-button value="bookmark" (click)="pastLaunches()">
-        <ion-icon name="bookmark"></ion-icon>
+      <ion-segment-button value="arrow-down" (click)="allLaunches()">
+        <ion-icon name="arrow-down"></ion-icon>
       </ion-segment-button>
-      <ion-segment-button value="bookmarks" (click)="nextLaunches()">
-        <ion-icon name="bookmarks"></ion-icon>
+      <ion-segment-button value="arrow-forward" (click)="nextLaunches()">
+        <ion-icon name="arrow-forward"></ion-icon>
       </ion-segment-button>
     </ion-segment>
   </ion-toolbar>
