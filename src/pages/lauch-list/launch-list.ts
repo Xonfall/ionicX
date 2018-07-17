@@ -29,15 +29,8 @@ export class LauchListPage {
     private localNotification: LocalNotifications
   )
   {
-    this.defaultPropertie = 'camera';
+    this.defaultPropertie = 'arrow-down';
     this.allLaunches();
-
-    this.localNotification.schedule({
-      id: 1,
-      text: 'Single ILocalNotification',
-      trigger: {at: new Date(new Date().getTime() + 40)},
-      data: { secret: 'de' }
-    });
   }
 
   viewDetailsLaunche(launchDetails) {
