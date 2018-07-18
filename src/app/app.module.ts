@@ -19,6 +19,7 @@ import { SpacexApiProvider } from '../providers/spacex-api/spacex-api';
 import { HttpClientModule } from '@angular/common/http';
 
 import { CapsuleDetailsPage } from "../pages/capsule-details/capsule-details";
+import { CapsulePartPage } from "../pages/capsule-details/capsule-part/capsule-part";
 import { RocketListPage } from "../pages/rocket-list/rocket-list";
 import { LocalNotifications } from "@ionic-native/local-notifications";
 
@@ -32,6 +33,7 @@ import { CacheModule } from "ionic-cache";
     RocketDetailsPage,
     CapsuleListPage,
     CapsuleDetailsPage,
+    CapsulePartPage,
     LauchListPage,
     LaunchDetailsPage,
     LaunchpadListPage,
@@ -52,6 +54,7 @@ import { CacheModule } from "ionic-cache";
     RocketDetailsPage,
     CapsuleListPage,
     CapsuleDetailsPage,
+    CapsulePartPage,
     LauchListPage,
     LaunchDetailsPage,
     LaunchpadListPage,

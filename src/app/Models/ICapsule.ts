@@ -1,4 +1,4 @@
-export interface ICapsule {
+export interface ICapsule {A
   id: string;
   name: string;
   type: string;
@@ -7,7 +7,7 @@ export interface ICapsule {
   sidewall_angle_deg: number;
   orbit_duration_yr: number;
   heat_shield: IHeatShield;
-  thrusters?: IThrusters;
+  thrusters: IThrusters[];
   launch_payload_mass: ILaunchPayloadMass;
   launch_payload_vol: IPayloadVolume;
   return_payload_mass: ILaunchPayloadMass;

@@ -1,0 +1,45 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>
+      {{ capsulePart.capsule_serial }}
+    </ion-title>
+    <ion-buttons start>
+      <button ion-button (click)="dismiss()">
+        <span ion-text color="primary" showWhen="ios">Cancel</span>
+        <ion-icon name="md-close" showWhen="android,windows"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+  <div>
+    <h3>Informations</h3>
+    <span>Capsule : {{ capsulePart.capsule_id }}</span><br>
+    <span>Status :
+      <ion-badge color="green" *ngIf="capsulePart.status=='active'">
+        Active
+      </ion-badge>
+      <ion-badge color="red" *ngIf="capsulePart.status!='active'">
+        {{ capitalize(capsulePart.status) }}
+      </ion-badge>
+    </span><br>
+    <span *ngIf="capsulePart.original_launch != null">Original launch : {{ convertDate(capsulePart.original_launch) }}</span><br>
+    <span>Landing : {{ capsulePart.landings }}</span><br>
+    <span>Type : {{ capsulePart.type }}</span><br>
+  </div>
+  <br>
+
+  <div *ngIf="capsulePart.details!=null">
+    <h3>Details</h3>
+    <p>{{ capsulePart.details }}</p><br>
+  </div>
+  <br>
+
+  <h3>Missions</h3>
+  <ion-list>
+    <span *ngFor="let mission of capsulePart.missions" (click)="showPart(capsulePart)">
+      {{ mission }}
+    </span>
+  </ion-list>
+</ion-content>
